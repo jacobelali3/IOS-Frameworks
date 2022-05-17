@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		1F47CDA828336F2E00744026 /* FlightsData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F47CDA728336F2E00744026 /* FlightsData.swift */; };
+		1F47CDAA28336F3500744026 /* FlightsManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F47CDA928336F3500744026 /* FlightsManager.swift */; };
 		A2B7F04528235DB2005031FC /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = A2B7F04428235DB2005031FC /* AppDelegate.swift */; };
 		A2B7F04728235DB2005031FC /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = A2B7F04628235DB2005031FC /* SceneDelegate.swift */; };
 		A2B7F04928235DB2005031FC /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A2B7F04828235DB2005031FC /* ViewController.swift */; };
@@ -23,6 +25,8 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		1F47CDA728336F2E00744026 /* FlightsData.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FlightsData.swift; sourceTree = "<group>"; };
+		1F47CDA928336F3500744026 /* FlightsManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FlightsManager.swift; sourceTree = "<group>"; };
 		A2B7F04128235DB2005031FC /* Booking_App.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Booking_App.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		A2B7F04428235DB2005031FC /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		A2B7F04628235DB2005031FC /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -87,9 +91,11 @@
 		A2B7F05828235DC7005031FC /* Util */ = {
 			isa = PBXGroup;
 			children = (
+				1F47CDA728336F2E00744026 /* FlightsData.swift */,
 				A2B7F05C28235E30005031FC /* DataStore.swift */,
 				A2B7F06B28236B82005031FC /* ArithmeticUtil.swift */,
 				A2B7F06E28236BEF005031FC /* DateUtil.swift */,
+				1F47CDA928336F3500744026 /* FlightsManager.swift */,
 			);
 			path = Util;
 			sourceTree = "<group>";
@@ -198,9 +204,11 @@
 				A2B7F06C28236B82005031FC /* ArithmeticUtil.swift in Sources */,
 				A2B7F05D28235E30005031FC /* DataStore.swift in Sources */,
 				A2B7F04528235DB2005031FC /* AppDelegate.swift in Sources */,
+				1F47CDA828336F2E00744026 /* FlightsData.swift in Sources */,
 				A2B7F05F28235FDF005031FC /* User.swift in Sources */,
 				A2B7F06828236AE3005031FC /* ExampleController.swift in Sources */,
 				A2B7F04728235DB2005031FC /* SceneDelegate.swift in Sources */,
+				1F47CDAA28336F3500744026 /* FlightsManager.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
