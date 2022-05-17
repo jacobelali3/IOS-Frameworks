@@ -10,17 +10,11 @@ import Foundation
 struct FlightsData: Decodable {
     
     enum CodingKeys: String, CodingKey {
-        case pagination
         case entry = "data"
     }
     
-    let pagination : Pagination
     let entry : [Entry]
     //let flightStatus: String
-}
-
-struct Pagination: Decodable {
-    let limit : Int
 }
 
 struct Entry: Decodable {
