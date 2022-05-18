@@ -7,6 +7,12 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		0AC926712834EC98000520D8 /* UserDetailController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0AC926702834EC98000520D8 /* UserDetailController.swift */; };
+		0AC926732834ECDA000520D8 /* WelcomeController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0AC926722834ECD9000520D8 /* WelcomeController.swift */; };
+		0AC926752834ECFC000520D8 /* EditBookingController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0AC926742834ECFC000520D8 /* EditBookingController.swift */; };
+		0AC926772834ED21000520D8 /* PaymentController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0AC926762834ED21000520D8 /* PaymentController.swift */; };
+		0AC926792834ED3B000520D8 /* ConfirmController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0AC926782834ED3B000520D8 /* ConfirmController.swift */; };
+		0AC9267B2834ED4E000520D8 /* EmailController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0AC9267A2834ED4E000520D8 /* EmailController.swift */; };
 		1F47CDA828336F2E00744026 /* FlightsData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F47CDA728336F2E00744026 /* FlightsData.swift */; };
 		1F47CDAC2833708700744026 /* FlightOptionsController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F47CDAB2833708700744026 /* FlightOptionsController.swift */; };
 		1F47CDAE2833709D00744026 /* FlightSelectionsController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F47CDAD2833709D00744026 /* FlightSelectionsController.swift */; };
@@ -26,6 +32,12 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		0AC926702834EC98000520D8 /* UserDetailController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserDetailController.swift; sourceTree = "<group>"; };
+		0AC926722834ECD9000520D8 /* WelcomeController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WelcomeController.swift; sourceTree = "<group>"; };
+		0AC926742834ECFC000520D8 /* EditBookingController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditBookingController.swift; sourceTree = "<group>"; };
+		0AC926762834ED21000520D8 /* PaymentController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PaymentController.swift; sourceTree = "<group>"; };
+		0AC926782834ED3B000520D8 /* ConfirmController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConfirmController.swift; sourceTree = "<group>"; };
+		0AC9267A2834ED4E000520D8 /* EmailController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmailController.swift; sourceTree = "<group>"; };
 		1F47CDA728336F2E00744026 /* FlightsData.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FlightsData.swift; sourceTree = "<group>"; };
 		1F47CDAB2833708700744026 /* FlightOptionsController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FlightOptionsController.swift; sourceTree = "<group>"; };
 		1F47CDAD2833709D00744026 /* FlightSelectionsController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FlightSelectionsController.swift; sourceTree = "<group>"; };
@@ -106,6 +118,12 @@
 			children = (
 				A2B7F06728236AE3005031FC /* ExampleController.swift */,
 				1F47CDAB2833708700744026 /* FlightOptionsController.swift */,
+				0AC926702834EC98000520D8 /* UserDetailController.swift */,
+				0AC926722834ECD9000520D8 /* WelcomeController.swift */,
+				0AC926742834ECFC000520D8 /* EditBookingController.swift */,
+				0AC926762834ED21000520D8 /* PaymentController.swift */,
+				0AC926782834ED3B000520D8 /* ConfirmController.swift */,
+				0AC9267A2834ED4E000520D8 /* EmailController.swift */,
 				1F47CDAD2833709D00744026 /* FlightSelectionsController.swift */,
 			);
 			path = Controller;
@@ -206,13 +224,19 @@
 				A2B7F06128236051005031FC /* Ticket.swift in Sources */,
 				A2B7F06428236087005031FC /* Booking.swift in Sources */,
 				A2B7F06C28236B82005031FC /* ArithmeticUtil.swift in Sources */,
+				0AC9267B2834ED4E000520D8 /* EmailController.swift in Sources */,
+				0AC926732834ECDA000520D8 /* WelcomeController.swift in Sources */,
 				A2B7F05D28235E30005031FC /* DataStore.swift in Sources */,
 				A2B7F04528235DB2005031FC /* AppDelegate.swift in Sources */,
+				0AC926752834ECFC000520D8 /* EditBookingController.swift in Sources */,
+				0AC926792834ED3B000520D8 /* ConfirmController.swift in Sources */,
 				1F47CDAC2833708700744026 /* FlightOptionsController.swift in Sources */,
 				1F47CDA828336F2E00744026 /* FlightsData.swift in Sources */,
 				A2B7F05F28235FDF005031FC /* User.swift in Sources */,
+				0AC926712834EC98000520D8 /* UserDetailController.swift in Sources */,
 				A2B7F06828236AE3005031FC /* ExampleController.swift in Sources */,
 				A2B7F04728235DB2005031FC /* SceneDelegate.swift in Sources */,
+				0AC926772834ED21000520D8 /* PaymentController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
