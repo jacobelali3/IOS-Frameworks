@@ -34,6 +34,21 @@
             </objects>
             <point key="canvasLocation" x="132" y="116"/>
         </scene>
+        <!--Edit Booking Controller-->
+        <scene sceneID="nM7-8Y-Gqz">
+            <objects>
+                <viewController id="22T-OW-eYA" customClass="EditBookingController" customModule="Booking_App" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="eAa-Zq-SpI">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <viewLayoutGuide key="safeArea" id="IX8-IA-Of5"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="zdj-pw-Lqf" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="150" y="763"/>
+        </scene>
         <!--Flight Options Controller-->
         <scene sceneID="abA-5H-P0s">
             <objects>
@@ -105,6 +120,66 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Bur-Gt-QlQ" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1893" y="116"/>
+        </scene>
+        <!--User Detail Controller-->
+        <scene sceneID="BvA-Ou-x2J">
+            <objects>
+                <viewController id="wW1-9I-MzB" customClass="UserDetailController" customModule="Booking_App" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="Obc-6e-GFZ">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <viewLayoutGuide key="safeArea" id="5MF-gg-0Af"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="QK7-Pt-OQE" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2643" y="116"/>
+        </scene>
+        <!--Payment Controller-->
+        <scene sceneID="OxV-qf-cX1">
+            <objects>
+                <viewController id="Pqa-Ss-2Sb" customClass="PaymentController" customModule="Booking_App" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="LR1-tW-1ZJ">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <viewLayoutGuide key="safeArea" id="OUd-xt-O0y"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Aa7-e9-gJf" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="3448" y="116"/>
+        </scene>
+        <!--Confirm Controller-->
+        <scene sceneID="IPe-yI-f9D">
+            <objects>
+                <viewController id="wI5-Ef-TSg" customClass="ConfirmController" customModule="Booking_App" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="n5c-FO-LJY">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <viewLayoutGuide key="safeArea" id="1im-7A-KMh"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="vP1-0z-snK" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="4232" y="116"/>
+        </scene>
+        <!--Email Controller-->
+        <scene sceneID="ZXC-Lf-W5d">
+            <objects>
+                <viewController id="fw2-3H-ePF" customClass="EmailController" customModule="Booking_App" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="sZw-VF-Umw">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <viewLayoutGuide key="safeArea" id="uI2-I8-1U7"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="QfN-IU-Tud" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="5081" y="116"/>
         </scene>
     </scenes>
     <resources>
