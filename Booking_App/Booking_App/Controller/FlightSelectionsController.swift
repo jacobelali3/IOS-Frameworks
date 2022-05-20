@@ -12,24 +12,27 @@ class FlightSelectionsController: UIViewController {
     
     @IBOutlet weak var tableView: UITableView!
     
-    var flightDataArray = [Entry]()
-    let flightURL = "http://api.aviationstack.com/v1/flights?access_key=c5970189867c88568b4dccb6ede6a42e&airline_iata=VA&flight_status=scheduled&limit=10"
+    var depIata: String?
+    var arrIata: String?
     
-    //var someUser : User = User()
-    //etUserDate(_ day: Int,_ month: Int,_ year: Int,_ hour: Int,_ minute: Int){
+    var flightDataArray = [Entry]()
+    let flightURL = "http://api.aviationstack.com/v1/flights?access_key=c5970189867c88568b4dccb6ede6a42e&flight_status=scheduled"
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-        fetchFlight()
+        depIata = "CBR"
+        arrIata = "SYD"
+        
+        fetchFlight(toIata: arrIata ?? "CBR", fromIata: depIata ?? "ADL")
         
         self.tableView.reloadData()
-        //print(flightDataArray.count)
         
         
         
     }
     
-    func fetchFlight() {
-        let urlString = "\(flightURL)"
+    func fetchFlight(toIata: String, fromIata: String) {
+        let urlString = "\(flightURL)" + "&dep_iata=" + fromIata + "&arr_iata=" + toIata
         
         performRequest(urlString: urlString)
     }
@@ -48,7 +51,7 @@ class FlightSelectionsController: UIViewController {
                 }
                 if let safeData = data {
                     let dataString = String(data: safeData, encoding: .utf8)
-                    //print(dataString!)
+                    print(dataString!)
                     self.parseJSON(flightsData: safeData)
                 }
             }
@@ -62,18 +65,9 @@ class FlightSelectionsController: UIViewController {
         do {
             let decodedData = try decoder.decode(FlightsData.self, from: flightsData)
            
-            //print(decodedData.entry[0].flight.number)
-            //print(decodedData.entry[0].airline.name)
-            //print(decodedData.entry[0].departure.scheduled)
-            //print(decodedData.entry[0].departure.airport)
-            //print(decodedData.entry[0].arrival.airport)
-            
-            var count = 0
-            
             for flight in decodedData.entry {
                 flightDataArray.append(flight)
-                //print(flightDataArray[count].flight.number)
-                count += 1
+                
             }
             
             DispatchQueue.main.async {
@@ -95,9 +89,17 @@ extension FlightSelectionsController : UITableViewDelegate, UITableViewDataSourc
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "Cell", for: indexPath)
         
-        cell.textLabel?.text = flightDataArray[indexPath.row].departure.scheduled
+        let timeGross = flightDataArray[indexPath.row].departure.scheduled.components(separatedBy: "T")
+        
+        let time = timeGross[1].components(separatedBy: "+")
+        
+        cell.textLabel?.text = time[0]
         
         return cell
+    }
+    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        print(flightDataArray[indexPath.row].departure.scheduled)
     }
     
     
