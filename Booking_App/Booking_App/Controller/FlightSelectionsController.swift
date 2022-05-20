@@ -14,14 +14,15 @@ class FlightSelectionsController: UIViewController {
     
     var depIata: String?
     var arrIata: String?
+    var flightDate: Date?
     
     var flightDataArray = [Entry]()
-    let flightURL = "http://api.aviationstack.com/v1/flights?access_key=c5970189867c88568b4dccb6ede6a42e&flight_status=scheduled"
+    let flightURL = "http://api.aviationstack.com/v1/flights?access_key=c5970189867c88568b4dccb6ede6a42e&flight_status=scheduled&limit=10"
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        depIata = "CBR"
-        arrIata = "SYD"
+        print(depIata ?? "missing")
+        print(arrIata ?? "missing")
         
         fetchFlight(toIata: arrIata ?? "CBR", fromIata: depIata ?? "ADL")
         

@@ -18,46 +18,49 @@ class FlightOptionsController: UIViewController {
     @IBOutlet weak var selectedDate: UIDatePicker!
     
     @IBAction func dateChanged(_ sender: Any) {
-        print(selectedDate.date)
+        fDate = selectedDate.date
     }
     
     var someUser : User = User()
-    //etUserDate(_ day: Int,_ month: Int,_ year: Int,_ hour: Int,_ minute: Int){
+    
+    var iataFrom: String?
+    var iataTo: String?
+    var fDate: Date?
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-        var iataFrom: String?
-        var iataTo: String?
+      
         
         let optionFrom = {(action : UIAction) in
             print(action.title)
             
             switch action.title {
             case "Canberra":
-                iataFrom = "CBR"
+                self.iataFrom = "CBR"
                 
             case "Darwin":
-                iataFrom = "DRW"
+                self.iataFrom = "DRW"
                 
             case "Brisbane":
-                iataFrom = "BNE"
+                self.iataFrom = "BNE"
                 
             case "Adelaide":
-                iataFrom = "ADL"
+                self.iataFrom = "ADL"
                 
             case "Hobart":
-                iataFrom = "HBA"
+                self.iataFrom = "HBA"
                 
             case "Melbourne":
-                iataFrom = "MEL"
+                self.iataFrom = "MEL"
                 
             case "Perth":
-                iataFrom = "PER"
+                self.iataFrom = "PER"
                 
             default:
-                iataFrom = "SYD"
+                self.iataFrom = "SYD"
             }
             
-            print(iataFrom ?? "")
+            print(self.iataFrom ?? "")
         }
         
         fromButton.menu = UIMenu(children: [
@@ -78,31 +81,31 @@ class FlightOptionsController: UIViewController {
             
             switch action.title {
             case "Canberra":
-                iataTo = "CBR"
+                self.iataTo = "CBR"
                 
             case "Darwin":
-                iataTo = "DRW"
+                self.iataTo = "DRW"
                 
             case "Brisbane":
-                iataTo = "BNE"
+                self.iataTo = "BNE"
                 
             case "Adelaide":
-                iataTo = "ADL"
+                self.iataTo = "ADL"
                 
             case "Hobart":
-                iataTo = "HBA"
+                self.iataTo = "HBA"
                 
             case "Melbourne":
-                iataTo = "MEL"
+                self.iataTo = "MEL"
                 
             case "Perth":
-                iataTo = "PER"
+                self.iataTo = "PER"
                 
             default:
-                iataTo = "SYD"
+                self.iataTo = "SYD"
             }
             
-            print(iataTo ?? "")
+            print(self.iataTo ?? "")
         }
         
         toButton.menu = UIMenu(children: [
@@ -121,7 +124,14 @@ class FlightOptionsController: UIViewController {
     }
     
    
-    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.identifier == "goToSelect" {
+            let VC = segue.destination as! FlightSelectionsController
+            VC.arrIata = iataTo
+            VC.depIata = iataFrom
+            VC.flightDate = fDate
+        }
+    }
     
 
     
