@@ -12,8 +12,8 @@ class Booking{
     var flightName : String = "Some flight"
     var date : Date = .now
     var price : Double = 0.0
-    var user : User = User();
-    var ticket : Ticket = Ticket();
+    let user : User = User();
+    let ticket : Ticket = Ticket();
     
     func getbookingNumber() -> String{
         return bookingNumber;
@@ -50,4 +50,5 @@ class Booking{
     func getTicket() -> Ticket{
         return ticket;
     }
+    
 }

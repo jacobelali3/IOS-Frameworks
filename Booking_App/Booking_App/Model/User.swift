@@ -28,4 +28,5 @@ class User{
     func setEmail(email: String){
         self.email = email;
     }
+    
 }
