@@ -17,20 +17,32 @@ class FlightSelectionsController: UIViewController {
     var flightDate: Date?
     
     var flightDataArray = [Entry]()
-    let flightURL = "http://api.aviationstack.com/v1/flights?access_key=c5970189867c88568b4dccb6ede6a42e&flight_status=scheduled&limit=10"
+    let flightURL = "http://api.aviationstack.com/v1/flights?access_key=38218bad06e67ac4cfaa200855291827&flight_status=scheduled&limit=10"
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        tableSetBackgroundLoading("Loading")
+        
         print(depIata ?? "missing")
         print(arrIata ?? "missing")
         
-        fetchFlight(toIata: arrIata ?? "CBR", fromIata: depIata ?? "ADL")
+        fetchFlight(toIata: arrIata ?? "", fromIata: depIata ?? "")
         
-        self.tableView.reloadData()
+        //self.tableView.reloadData()
+        
+        
         
         
         
     }
+    
+    func tableSetBackgroundLoading(_ message: String) {
+        let backgroundLabel = UILabel(frame: CGRect(x: 0, y: 0, width: tableView.bounds.size.width, height: tableView.bounds.size.height))
+        backgroundLabel.text = message
+        backgroundLabel.textAlignment = .center
+        tableView.backgroundView = backgroundLabel
+    }
+    
     
     func fetchFlight(toIata: String, fromIata: String) {
         let urlString = "\(flightURL)" + "&dep_iata=" + fromIata + "&arr_iata=" + toIata
@@ -71,9 +83,20 @@ class FlightSelectionsController: UIViewController {
                 
             }
             
-            DispatchQueue.main.async {
-                self.tableView.reloadData()
+            if (flightDataArray.isEmpty) {
+                DispatchQueue.main.async {
+                    self.tableSetBackgroundLoading("No flights found")
+                }
+            
+            } else {
+                DispatchQueue.main.async {
+                    self.tableView.reloadData()
+                    self.tableView.backgroundView = nil
+                    
+                }
+                
             }
+            
             
         } catch {
             print(error)

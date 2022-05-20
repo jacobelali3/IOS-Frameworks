@@ -19,17 +19,18 @@ class FlightOptionsController: UIViewController {
     
     @IBAction func dateChanged(_ sender: Any) {
         fDate = selectedDate.date
+        print(fDate ?? "failed")
     }
     
     var someUser : User = User()
     
-    var iataFrom: String?
-    var iataTo: String?
+    var iataFrom: String = "SYD"
+    var iataTo: String = "CBR"
     var fDate: Date?
     
     override func viewDidLoad() {
         super.viewDidLoad()
-      
+        fDate = selectedDate.date
         
         let optionFrom = {(action : UIAction) in
             print(action.title)
@@ -60,7 +61,8 @@ class FlightOptionsController: UIViewController {
                 self.iataFrom = "SYD"
             }
             
-            print(self.iataFrom ?? "")
+            self.fromButton.setTitle(action.title, for: .normal)
+            print(self.iataFrom)
         }
         
         fromButton.menu = UIMenu(children: [
@@ -104,8 +106,8 @@ class FlightOptionsController: UIViewController {
             default:
                 self.iataTo = "SYD"
             }
-            
-            print(self.iataTo ?? "")
+            self.toButton.setTitle(action.title, for: .normal)
+            print(self.iataTo)
         }
         
         toButton.menu = UIMenu(children: [
@@ -133,7 +135,7 @@ class FlightOptionsController: UIViewController {
         }
     }
     
-
+    
     
     
 }
