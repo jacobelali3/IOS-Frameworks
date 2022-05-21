@@ -21,7 +21,7 @@ struct Entry: Decodable {
     enum CodingKeys: String, CodingKey {
         case flightDate = "flight_date"
         case flightStatus = "flight_status"
-        case flight
+        case flightN = "flight"
         case departure
         case arrival
         case airline
@@ -30,13 +30,13 @@ struct Entry: Decodable {
     let flightDate: String
     let flightStatus: String
     
-    let flight : Flight
+    let flightN : FlightN
     let departure : Departure
     let arrival : Arrival
     let airline : Airline
 }
 
-struct Flight : Decodable {
+struct FlightN : Decodable {
     let number : String
 }
 

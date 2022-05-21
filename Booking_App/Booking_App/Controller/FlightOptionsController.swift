@@ -28,6 +28,8 @@ class FlightOptionsController: UIViewController {
     var iataTo: String = "CBR"
     var fDate: Date?
     
+    var booking: Booking?
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         fDate = selectedDate.date
@@ -132,6 +134,7 @@ class FlightOptionsController: UIViewController {
             VC.arrIata = iataTo
             VC.depIata = iataFrom
             VC.flightDate = fDate
+            VC.booking = booking
         }
     }
     
