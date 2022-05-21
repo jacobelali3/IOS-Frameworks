@@ -24,7 +24,7 @@ let TICKETNUMBERKEY = "USER_TICKET_NUMBER"
 let TICKETFLIGHTNUMBER = "USER_TICKET_FLIGHTNUMBER"
 let TICKETSEAT = "USER_TICKET_SEAT"
 
-let user : User = User()
+let booking: Booking = Booking();
 
 /*
  Serves as a persistent database to store users and settings.
@@ -37,13 +37,13 @@ class DataStore{
     /*
      User variables - add/remove here if you wish
      */
-    var userName : String = user.name
+    var userName : String = booking.user.name
     {
         didSet {
             UserDefaults.standard.set(userName, forKey: USERNAMEKEY)
         }
     }
-    var userEmail : String = user.email
+    var userEmail : String = booking.user.email
     {
         didSet {
             UserDefaults.standard.set(userEmail, forKey: EMAILKEY)
@@ -52,25 +52,25 @@ class DataStore{
     /*
      Booking variables - add/remove here if you wish
      */
-    var userBookingNumber : String = user.booking.bookingNumber
+    var userBookingNumber : String = booking.bookingNumber
     {
         didSet {
             UserDefaults.standard.set(userBookingNumber, forKey: BOOKINGNUMBERKEY)
         }
     }
-    var userBookingFlightName : String = user.booking.flightName
+    var userBookingFlightName : String = booking.flightName
     {
         didSet {
             UserDefaults.standard.set(userBookingFlightName, forKey: FLIGHTNAMEKEY)
         }
     }
-    var userBookingDate : Date = user.booking.date
+    var userBookingDate : Date = booking.date
     {
         didSet {
             UserDefaults.standard.set(userBookingFlightName, forKey: DATEKEY)
         }
     }
-    var userBookingPrice : Double = user.booking.price
+    var userBookingPrice : Double = booking.price
     {
         didSet {
             UserDefaults.standard.set(userBookingFlightName, forKey: PRICEKEY)
@@ -79,19 +79,19 @@ class DataStore{
     /*
      Ticket variables - add/remove here if you wish
      */
-    var userTicketNumber : String = user.ticket.ticketNumber
+    var userTicketNumber : String = booking.ticket.ticketNumber
     {
         didSet {
             UserDefaults.standard.set(userTicketNumber, forKey: PRICEKEY)
         }
     }
-    var userTicketFlightNumber: String = user.ticket.flightNumber
+    var userTicketFlightNumber: String = booking.ticket.flightNumber
     {
         didSet {
             UserDefaults.standard.set(userTicketFlightNumber, forKey: PRICEKEY)
         }
     }
-    var userTicketSeat: Int = user.ticket.seat
+    var userTicketSeat: Int = booking.ticket.seat
     {
         didSet {
             UserDefaults.standard.set(userTicketSeat, forKey: PRICEKEY)
