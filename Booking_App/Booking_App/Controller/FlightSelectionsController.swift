@@ -23,7 +23,6 @@ class FlightSelectionsController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        move()
         tableSetBackgroundLoading("Loading")
         
         print(flightDate ?? "missing")
@@ -42,14 +41,6 @@ class FlightSelectionsController: UIViewController {
         
     }
     
-    func move() {
-        let vc = storyboard?.instantiateViewController(withIdentifier: "FlightOptionsController") as! FlightOptionsController
-        self.navigationController?.pushViewController(vc, animated: true)
-        vc.navigationItem.setHidesBackButton(true, animated: true)
-        //booking.setFlight(flight: flight)
-        //vc.booking = booking
-  
-    }
     
     func tableSetBackgroundLoading(_ message: String) {
         let backgroundLabel = UILabel(frame: CGRect(x: 0, y: 0, width: tableView.bounds.size.width, height: tableView.bounds.size.height))
@@ -172,7 +163,13 @@ extension FlightSelectionsController : UITableViewDelegate, UITableViewDataSourc
         print(flight.getDestination())
         print(flight.getDatetime())
         
-        move()
+        //NEED EITHER SEGUE OR NAV CONTROLLER!
+        //let vc = storyboard?.instantiateViewController(withIdentifier: "UserDetailController") as! UserDetailController
+        //self.navigationController?.pushViewController(vc, animated: true)
+        //vc.navigationItem.setHidesBackButton(true, animated: true)
+        //self.performSegue(withIdentifier: "something", sender: nil)
+        //booking.setFlight(flight: flight)
+        //vc.booking = booking
         
         
     }
