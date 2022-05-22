@@ -3,7 +3,6 @@
 //  Booking_App
 //
 //  Created by Kevin Yu on 18/5/2022.
-//
 
 import Foundation
 import UIKit
@@ -14,11 +13,12 @@ import MessageUI
 class EmailController: UIViewController,UINavigationControllerDelegate, MFMailComposeViewControllerDelegate {
     var booking: Booking = Booking()
     var ticketMessage: String = " "
-    var email: String = "someEmailToSendTo@gmail.com"
     let customAlert = EmailAlert()
+    var email: String = ""
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        email = self.booking.userDetails.email
     }
 //    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
 //           if segue.identifier == "goToGame" {
