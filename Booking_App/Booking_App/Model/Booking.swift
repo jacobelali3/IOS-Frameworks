@@ -15,5 +15,4 @@ struct Booking{
     let user : User = User();
     let ticket : Ticket = Ticket();
     // var flight : Flight?; - In case we need to store flights data.
-    
 }
