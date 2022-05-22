@@ -15,7 +15,7 @@ class FlightSelectionsController: UIViewController {
     var depIata: String?
     var arrIata: String?
     var flightDate: Date?
-    var booking: Booking?
+    var booking: Booking = Booking()
     
     
     var flightDataArray = [Entry]()
@@ -109,6 +109,12 @@ class FlightSelectionsController: UIViewController {
         }
     }
     
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+            if segue.identifier == "goToUser" {
+                let VC = segue.destination as! UserDetailController
+                VC.booking = booking
+            }
+        }
 }
 
 extension FlightSelectionsController : UITableViewDelegate, UITableViewDataSource {
@@ -149,16 +155,20 @@ extension FlightSelectionsController : UITableViewDelegate, UITableViewDataSourc
         
         let newDate = dateFormater.date(from: finalDate)
         
-        print(newDate)
-
+        print(finalDate)
         
-        //NEED EITHER SEGUE OR NAV CONTROLLER!
-        //let vc = storyboard?.instantiateViewController(withIdentifier: "UserDetailController") as! UserDetailController
-        //self.navigationController?.pushViewController(vc, animated: true)
-        //vc.navigationItem.setHidesBackButton(true, animated: true)
-        //self.performSegue(withIdentifier: "something", sender: nil)
-        //booking.setFlight(flight: flight)
-        //vc.booking = booking
+        booking.ticketDetails.arrLocation = flightDataArray[indexPath.row].arrival.airport;
+        
+        booking.ticketDetails.depLocation = flightDataArray[indexPath.row].departure.airport;
+        
+        booking.ticketDetails.departureTime = finalDate;
+        
+        booking.ticketDetails.flightNumber = flightDataArray[indexPath.row].flightN.number
+        
+        print(booking.ticketDetails.departureTime)
+        
+        
+        self.performSegue(withIdentifier: "goToUser", sender: nil)
         
         
     }

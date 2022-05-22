@@ -27,8 +27,7 @@ class FlightOptionsController: UIViewController {
     var iataFrom: String = "SYD"
     var iataTo: String = "CBR"
     var fDate: Date?
-    
-    var booking: Booking?
+    var booking: Booking = Booking()
     
     override func viewDidLoad() {
         super.viewDidLoad()
