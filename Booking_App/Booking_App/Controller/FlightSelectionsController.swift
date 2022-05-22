@@ -16,7 +16,7 @@ class FlightSelectionsController: UIViewController {
     var arrIata: String?
     var flightDate: Date?
     var booking: Booking?
-    let flight = Flight()
+    
     
     var flightDataArray = [Entry]()
     let flightURL = "http://api.aviationstack.com/v1/flights?access_key=38218bad06e67ac4cfaa200855291827&flight_status=scheduled&limit=10"
@@ -29,7 +29,7 @@ class FlightSelectionsController: UIViewController {
         print(depIata ?? "missing")
         print(arrIata ?? "missing")
         
-        //fetchFlight(toIata: arrIata ?? "", fromIata: depIata ?? "")
+        fetchFlight(toIata: arrIata ?? "", fromIata: depIata ?? "")
         
         //self.tableView.reloadData()
         
@@ -150,18 +150,7 @@ extension FlightSelectionsController : UITableViewDelegate, UITableViewDataSourc
         let newDate = dateFormater.date(from: finalDate)
         
         print(newDate)
-        
-        flight.setName(name: flightDataArray[indexPath.row].departure.airport + " to " + flightDataArray[indexPath.row].arrival.airport)
-        flight.setId(id: flightDataArray[indexPath.row].flightN.number)
-        flight.setDeparture(depature: flightDataArray[indexPath.row].departure.airport)
-        flight.setDestination(destination: flightDataArray[indexPath.row].arrival.airport)
-        flight.setDatetime(datetime: newDate!)
-        
-        print(flight.getName())
-        print(flight.getId())
-        print(flight.getDeparture())
-        print(flight.getDestination())
-        print(flight.getDatetime())
+
         
         //NEED EITHER SEGUE OR NAV CONTROLLER!
         //let vc = storyboard?.instantiateViewController(withIdentifier: "UserDetailController") as! UserDetailController
