@@ -14,7 +14,13 @@ class UserDetailController: UIViewController {
     @IBOutlet weak var lastNameTf: UITextField!
     
     @IBOutlet weak var emailTf: UITextField!
+    
+    @IBOutlet weak var confirmButton: UIButton!
+    @IBOutlet weak var invalidInputLbl: UILabel!
+    
     var booking: Booking = Booking();
+    
+    let alert = EmailAlert();
     
     //    var someUser : User = User()
     //etUserDate(_ day: Int,_ month: Int,_ year: Int,_ hour: Int,_ minute: Int){
@@ -22,7 +28,7 @@ class UserDetailController: UIViewController {
         super.viewDidLoad()
     }
     
-    @IBAction func confirmBtn(_ sender: Any) {
+    @objc func confirm() -> Bool{
         if(emailIsValid(emailTf.text!) && nameIsValid(firstNameTf.text!) && nameIsValid(lastNameTf.text!)){
             //Set user firstName:
             booking.userDetails.firstName = firstNameTf.text!;
@@ -32,18 +38,32 @@ class UserDetailController: UIViewController {
             
             //set user email:
             booking.userDetails.email = emailTf.text!;
+            
+            return true;
         }
         else{
-            
+            alert.showAlert(with: "Invalid Input", message: "Error! Invalid input! Check your name and email.", on: self)
+            return false;
         }
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?){
         if segue.identifier == "goToPayment" {
             let VC = segue.destination as! PaymentController;
-            VC.booking = self.booking;
+                VC.booking = self.booking;
         }
     }
+    
+    override func shouldPerformSegue(withIdentifier identifier: String, sender: Any?) -> Bool {
+        if confirm(){
+            return true;
+        }
+        else{
+            return false;
+        }
+    }
+    
+    
          
     let emailPattern = #"^\S+@\S+\.\S+$"#;
     let namePattern = #"[a-zA-Z]+"#;
