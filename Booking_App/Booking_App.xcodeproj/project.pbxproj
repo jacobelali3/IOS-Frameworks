@@ -105,7 +105,6 @@
 		A2B7F05828235DC7005031FC /* Util */ = {
 			isa = PBXGroup;
 			children = (
-				1F47CDA728336F2E00744026 /* FlightsData.swift */,
 				A2B7F05C28235E30005031FC /* DataStore.swift */,
 				A2B7F06B28236B82005031FC /* ArithmeticUtil.swift */,
 				A2B7F06E28236BEF005031FC /* DateUtil.swift */,
@@ -132,6 +131,7 @@
 		A2B7F05A28235DD7005031FC /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				1F47CDA728336F2E00744026 /* FlightsData.swift */,
 				A2B7F05E28235FDF005031FC /* User.swift */,
 				A2B7F06028236051005031FC /* Ticket.swift */,
 				A2B7F06328236087005031FC /* Booking.swift */,

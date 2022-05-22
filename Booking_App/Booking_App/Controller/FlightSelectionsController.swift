@@ -12,24 +12,46 @@ class FlightSelectionsController: UIViewController {
     
     @IBOutlet weak var tableView: UITableView!
     
-    var flightDataArray = [Entry]()
-    let flightURL = "http://api.aviationstack.com/v1/flights?access_key=c5970189867c88568b4dccb6ede6a42e&airline_iata=VA&flight_status=scheduled&limit=10"
+    var depIata: String?
+    var arrIata: String?
+    var flightDate: Date?
+    var booking: Booking?
     
-    //var someUser : User = User()
-    //etUserDate(_ day: Int,_ month: Int,_ year: Int,_ hour: Int,_ minute: Int){
+    
+    var flightDataArray = [Entry]()
+    let flightURL = "http://api.aviationstack.com/v1/flights?access_key=38218bad06e67ac4cfaa200855291827&flight_status=scheduled&limit=10"
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-        fetchFlight()
+        tableSetBackgroundLoading("Loading")
         
-        self.tableView.reloadData()
-        //print(flightDataArray.count)
+        print(flightDate ?? "missing")
+        print(depIata ?? "missing")
+        print(arrIata ?? "missing")
+        
+        fetchFlight(toIata: arrIata ?? "", fromIata: depIata ?? "")
+        
+        //self.tableView.reloadData()
+        
+        
+        
+        
         
         
         
     }
     
-    func fetchFlight() {
-        let urlString = "\(flightURL)"
+    
+    func tableSetBackgroundLoading(_ message: String) {
+        let backgroundLabel = UILabel(frame: CGRect(x: 0, y: 0, width: tableView.bounds.size.width, height: tableView.bounds.size.height))
+        backgroundLabel.text = message
+        backgroundLabel.textAlignment = .center
+        tableView.backgroundView = backgroundLabel
+    }
+    
+    
+    func fetchFlight(toIata: String, fromIata: String) {
+        let urlString = "\(flightURL)" + "&dep_iata=" + fromIata + "&arr_iata=" + toIata
         
         performRequest(urlString: urlString)
     }
@@ -48,7 +70,7 @@ class FlightSelectionsController: UIViewController {
                 }
                 if let safeData = data {
                     let dataString = String(data: safeData, encoding: .utf8)
-                    //print(dataString!)
+                    print(dataString!)
                     self.parseJSON(flightsData: safeData)
                 }
             }
@@ -62,23 +84,25 @@ class FlightSelectionsController: UIViewController {
         do {
             let decodedData = try decoder.decode(FlightsData.self, from: flightsData)
            
-            //print(decodedData.entry[0].flight.number)
-            //print(decodedData.entry[0].airline.name)
-            //print(decodedData.entry[0].departure.scheduled)
-            //print(decodedData.entry[0].departure.airport)
-            //print(decodedData.entry[0].arrival.airport)
-            
-            var count = 0
-            
             for flight in decodedData.entry {
                 flightDataArray.append(flight)
-                //print(flightDataArray[count].flight.number)
-                count += 1
+                
             }
             
-            DispatchQueue.main.async {
-                self.tableView.reloadData()
+            if (flightDataArray.isEmpty) {
+                DispatchQueue.main.async {
+                    self.tableSetBackgroundLoading("No flights found")
+                }
+            
+            } else {
+                DispatchQueue.main.async {
+                    self.tableView.reloadData()
+                    self.tableView.backgroundView = nil
+                    
+                }
+                
             }
+            
             
         } catch {
             print(error)
@@ -95,9 +119,48 @@ extension FlightSelectionsController : UITableViewDelegate, UITableViewDataSourc
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "Cell", for: indexPath)
         
-        cell.textLabel?.text = flightDataArray[indexPath.row].departure.scheduled
+        let timeGross = flightDataArray[indexPath.row].departure.scheduled.components(separatedBy: "T")
+        
+        let time = timeGross[1].components(separatedBy: "+")
+        
+        cell.textLabel?.text = time[0]
         
         return cell
+    }
+    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        print(flightDataArray[indexPath.row].departure.scheduled)
+        
+        let timeGross = flightDataArray[indexPath.row].departure.scheduled.components(separatedBy: "T")
+        
+        let time = timeGross[1].components(separatedBy: "+")
+        
+        let dateFormater = DateFormatter()
+        
+        dateFormater.dateFormat = "YY/MM/dd"
+        
+        let date = dateFormater.string(from: flightDate!)
+        
+        print(date)
+        
+        dateFormater.dateFormat = "YY/MM/DD HH:mm:ss"
+        
+        let finalDate = date + " " + time[0]
+        
+        let newDate = dateFormater.date(from: finalDate)
+        
+        print(newDate)
+
+        
+        //NEED EITHER SEGUE OR NAV CONTROLLER!
+        //let vc = storyboard?.instantiateViewController(withIdentifier: "UserDetailController") as! UserDetailController
+        //self.navigationController?.pushViewController(vc, animated: true)
+        //vc.navigationItem.setHidesBackButton(true, animated: true)
+        //self.performSegue(withIdentifier: "something", sender: nil)
+        //booking.setFlight(flight: flight)
+        //vc.booking = booking
+        
+        
     }
     
     
