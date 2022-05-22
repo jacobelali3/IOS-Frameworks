@@ -9,9 +9,8 @@ import Foundation
 import UIKit
 
 class ConfirmController: UIViewController {
-    
-//    var someUser : User = User()
-    //etUserDate(_ day: Int,_ month: Int,_ year: Int,_ hour: Int,_ minute: Int){
+    var booking: Booking = Booking()
+
     override func viewDidLoad() {
         super.viewDidLoad()
     }
