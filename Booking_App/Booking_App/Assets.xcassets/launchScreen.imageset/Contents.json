@@ -1,0 +1,23 @@
+{
+  "images" : [
+    {
+      "filename" : "Flight Book (3175 × 4700 px).png",
+      "idiom" : "universal",
+      "scale" : "1x"
+    },
+    {
+      "filename" : "Flight Book (3175 × 4700 px)@2x.png",
+      "idiom" : "universal",
+      "scale" : "2x"
+    },
+    {
+      "filename" : "Flight Book (3175 × 4700 px)@3x.png",
+      "idiom" : "universal",
+      "scale" : "3x"
+    }
+  ],
+  "info" : {
+    "author" : "xcode",
+    "version" : 1
+  }
+}

@@ -7,9 +7,9 @@
 
 import Foundation
 struct Booking{
-    //keep this as a string, we will concat a string with some integer when instantiating.
-    var bookingNumber : String = "NOT_SET"
-    var flightName : String = "Some flight"
-    var date : Date = .now
-    var price : Double = 0.0
+    
+    var bookingId : String = "NOT_SET"
+    var paymentDetails : Payment = Payment()
+    var ticketDetails : Ticket = Ticket()
+    var userDetails : User = User()
 }

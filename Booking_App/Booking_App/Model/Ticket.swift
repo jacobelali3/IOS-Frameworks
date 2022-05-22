@@ -2,13 +2,14 @@
 //  Ticket.swift
 //  Booking_App
 //
-//  Created by Jacob Elali on 5/5/2022.
+//  Created by Jacob Elali
 //
 
 import Foundation
 struct Ticket{
-    //Combination of flight name + some random number
-    var ticketNumber : String = "123"
-    var flightNumber : String = "someFlightName"
-    var seat : Int = -1
+ 
+    var departureTime : String = "NOT_SET"
+    var flightNumber : String = "NOT_SET"
+    var depLocation : String = "NOT_SET"
+    var arrLocation : String = "NOT_SET"
 }

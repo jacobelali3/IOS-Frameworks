@@ -7,9 +7,7 @@
 
 import Foundation
 struct User{
-    var name : String = "someUser"
-    var balance : Double = 0.0
-    var email : String = "defaultEmail"
-    var ticket : Ticket = Ticket()
-    var booking : Booking = Booking()
+    var firstName : String = "NOT_SET"
+    var lastName : String = "NOT_SET"
+    var email : String = "NOT_SET"
 }

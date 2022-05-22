@@ -24,11 +24,11 @@
 		A2B7F05128235DB3005031FC /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A2B7F04F28235DB3005031FC /* LaunchScreen.storyboard */; };
 		A2B7F05D28235E30005031FC /* DataStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = A2B7F05C28235E30005031FC /* DataStore.swift */; };
 		A2B7F05F28235FDF005031FC /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = A2B7F05E28235FDF005031FC /* User.swift */; };
-		A2B7F06128236051005031FC /* Ticket.swift in Sources */ = {isa = PBXBuildFile; fileRef = A2B7F06028236051005031FC /* Ticket.swift */; };
 		A2B7F06428236087005031FC /* Booking.swift in Sources */ = {isa = PBXBuildFile; fileRef = A2B7F06328236087005031FC /* Booking.swift */; };
-		A2B7F06828236AE3005031FC /* ExampleController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A2B7F06728236AE3005031FC /* ExampleController.swift */; };
 		A2B7F06C28236B82005031FC /* ArithmeticUtil.swift in Sources */ = {isa = PBXBuildFile; fileRef = A2B7F06B28236B82005031FC /* ArithmeticUtil.swift */; };
 		A2B7F06F28236BEF005031FC /* DateUtil.swift in Sources */ = {isa = PBXBuildFile; fileRef = A2B7F06E28236BEF005031FC /* DateUtil.swift */; };
+		D6A829352839FB2600BD9215 /* Payment.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6A829342839FB2600BD9215 /* Payment.swift */; };
+		D6A829372839FCC700BD9215 /* Ticket.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6A829362839FCC700BD9215 /* Ticket.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -51,11 +51,11 @@
 		A2B7F05228235DB3005031FC /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		A2B7F05C28235E30005031FC /* DataStore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataStore.swift; sourceTree = "<group>"; };
 		A2B7F05E28235FDF005031FC /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
-		A2B7F06028236051005031FC /* Ticket.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Ticket.swift; sourceTree = "<group>"; };
 		A2B7F06328236087005031FC /* Booking.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Booking.swift; sourceTree = "<group>"; };
-		A2B7F06728236AE3005031FC /* ExampleController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExampleController.swift; sourceTree = "<group>"; };
 		A2B7F06B28236B82005031FC /* ArithmeticUtil.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ArithmeticUtil.swift; sourceTree = "<group>"; };
 		A2B7F06E28236BEF005031FC /* DateUtil.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DateUtil.swift; sourceTree = "<group>"; };
+		D6A829342839FB2600BD9215 /* Payment.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Payment.swift; sourceTree = "<group>"; };
+		D6A829362839FCC700BD9215 /* Ticket.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Ticket.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -105,6 +105,7 @@
 		A2B7F05828235DC7005031FC /* Util */ = {
 			isa = PBXGroup;
 			children = (
+				1F47CDA728336F2E00744026 /* FlightsData.swift */,
 				A2B7F05C28235E30005031FC /* DataStore.swift */,
 				A2B7F06B28236B82005031FC /* ArithmeticUtil.swift */,
 				A2B7F06E28236BEF005031FC /* DateUtil.swift */,
@@ -115,7 +116,6 @@
 		A2B7F05928235DD2005031FC /* Controller */ = {
 			isa = PBXGroup;
 			children = (
-				A2B7F06728236AE3005031FC /* ExampleController.swift */,
 				1F47CDAB2833708700744026 /* FlightOptionsController.swift */,
 				0AC926702834EC98000520D8 /* UserDetailController.swift */,
 				0AC926722834ECD9000520D8 /* WelcomeController.swift */,
@@ -131,10 +131,10 @@
 		A2B7F05A28235DD7005031FC /* Model */ = {
 			isa = PBXGroup;
 			children = (
-				1F47CDA728336F2E00744026 /* FlightsData.swift */,
 				A2B7F05E28235FDF005031FC /* User.swift */,
-				A2B7F06028236051005031FC /* Ticket.swift */,
 				A2B7F06328236087005031FC /* Booking.swift */,
+				D6A829342839FB2600BD9215 /* Payment.swift */,
+				D6A829362839FCC700BD9215 /* Ticket.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -221,20 +221,20 @@
 				A2B7F04928235DB2005031FC /* ViewController.swift in Sources */,
 				A2B7F06F28236BEF005031FC /* DateUtil.swift in Sources */,
 				1F47CDAE2833709D00744026 /* FlightSelectionsController.swift in Sources */,
-				A2B7F06128236051005031FC /* Ticket.swift in Sources */,
 				A2B7F06428236087005031FC /* Booking.swift in Sources */,
 				A2B7F06C28236B82005031FC /* ArithmeticUtil.swift in Sources */,
 				0AC9267B2834ED4E000520D8 /* EmailController.swift in Sources */,
 				0AC926732834ECDA000520D8 /* WelcomeController.swift in Sources */,
+				D6A829372839FCC700BD9215 /* Ticket.swift in Sources */,
 				A2B7F05D28235E30005031FC /* DataStore.swift in Sources */,
 				A2B7F04528235DB2005031FC /* AppDelegate.swift in Sources */,
 				0AC926752834ECFC000520D8 /* EditBookingController.swift in Sources */,
 				0AC926792834ED3B000520D8 /* ConfirmController.swift in Sources */,
 				1F47CDAC2833708700744026 /* FlightOptionsController.swift in Sources */,
 				1F47CDA828336F2E00744026 /* FlightsData.swift in Sources */,
+				D6A829352839FB2600BD9215 /* Payment.swift in Sources */,
 				A2B7F05F28235FDF005031FC /* User.swift in Sources */,
 				0AC926712834EC98000520D8 /* UserDetailController.swift in Sources */,
-				A2B7F06828236AE3005031FC /* ExampleController.swift in Sources */,
 				A2B7F04728235DB2005031FC /* SceneDelegate.swift in Sources */,
 				0AC926772834ED21000520D8 /* PaymentController.swift in Sources */,
 			);

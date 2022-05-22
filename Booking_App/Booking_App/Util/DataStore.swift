@@ -5,26 +5,25 @@
 //  Created by Jacob Elali on 5/5/2022.
 //
 import Foundation
-/*
- var bookingNumber : String = "NOT_SET"
- var flightName : String = "Some flight"
- var date : Date = .now
- var paid : Double = 0.0
-}
- */
 
-let USERNAMEKEY = "USER_NAME_KEY"
-let EMAILKEY = "USER_EMAIL_KEY"
-let TICKETKEY = "USER_TICKET_KEY"
-let BOOKINGNUMBERKEY = "USER_BOOKING_NUMBER_KEY"
-let FLIGHTNAMEKEY = "USER_BOOKING_FLIGHT_NAME"
-let DATEKEY = "USER_BOOKING_DATE"
-let PRICEKEY = "USER_BOOKING_DATE"
-let TICKETNUMBERKEY = "USER_TICKET_NUMBER"
-let TICKETFLIGHTNUMBER = "USER_TICKET_FLIGHTNUMBER"
-let TICKETSEAT = "USER_TICKET_SEAT"
 
-let user : User = User()
+let FIRSTNAMEKEY = "FIRST_NAME_KEY"
+let LASTNAMEKEY = "LAST_NAME_KEY"
+let EMAILKEY = "EMAIL_KEY"
+let CARDNUMBERKEY = "CARD_NUMBER_KEY"
+let CVVKEY = "CVV_KEY"
+let EXPIRYKEY = "EXPIRY_KEY"
+let POSTCODEKEY = "POST_CODE_KEY"
+let CARDHOLDERNAMEKEY = "CARD_HOLDER_NAME_KEY"
+
+let FLIGHTNUMBERKEY = "FLIGHT_NUMBER_KEY"
+let ARRLOCATIONKEY = "ARR_LOCATION_KEY"
+let DEPLOCATIONKEY = "DEP_LOCATION_KEY"
+let DEPARTURETIMEKEY = "DEPARTURE_TIME_KEY"
+
+
+
+let booking : Booking = Booking()
 
 /*
  Serves as a persistent database to store users and settings.
@@ -37,72 +36,89 @@ class DataStore{
     /*
      User variables - add/remove here if you wish
      */
-    var userName : String = user.name
+    var firstName : String = booking.userDetails.firstName
     {
         didSet {
-            UserDefaults.standard.set(userName, forKey: USERNAMEKEY)
+            UserDefaults.standard.set(firstName, forKey: FIRSTNAMEKEY)
         }
     }
-    var userEmail : String = user.email
+    var lastName : String = booking.userDetails.lastName
     {
         didSet {
-            UserDefaults.standard.set(userEmail, forKey: EMAILKEY)
+            UserDefaults.standard.set(lastName, forKey: LASTNAMEKEY)
+        }
+    }
+    var email : String = booking.userDetails.lastName
+    {
+        didSet {
+            UserDefaults.standard.set(email, forKey: EMAILKEY)
         }
     }
     /*
-     Booking variables - add/remove here if you wish
+     Payment variables - add/remove here if you wish
      */
-    var userBookingNumber : String = user.booking.bookingNumber
+    var cardNumber : String = booking.paymentDetails.cardNumber
     {
         didSet {
-            UserDefaults.standard.set(userBookingNumber, forKey: BOOKINGNUMBERKEY)
+            UserDefaults.standard.set(cardNumber, forKey: CARDNUMBERKEY)
         }
     }
-    var userBookingFlightName : String = user.booking.flightName
+    var cvv : String = booking.paymentDetails.cvv
     {
         didSet {
-            UserDefaults.standard.set(userBookingFlightName, forKey: FLIGHTNAMEKEY)
+            UserDefaults.standard.set(cardNumber, forKey: CVVKEY)
         }
     }
-    var userBookingDate : Date = user.booking.date
+    var expiry : String = booking.paymentDetails.expiry
     {
         didSet {
-            UserDefaults.standard.set(userBookingFlightName, forKey: DATEKEY)
+            UserDefaults.standard.set(expiry, forKey: EXPIRYKEY)
         }
     }
-    var userBookingPrice : Double = user.booking.price
+    var postCode : String = booking.paymentDetails.postCode
     {
         didSet {
-            UserDefaults.standard.set(userBookingFlightName, forKey: PRICEKEY)
+            UserDefaults.standard.set(postCode, forKey: POSTCODEKEY)
+        }
+    }
+    var cardHolderName : String = booking.paymentDetails.cardHolderName
+    {
+        didSet {
+            UserDefaults.standard.set(cardHolderName, forKey: CARDHOLDERNAMEKEY)
         }
     }
     /*
      Ticket variables - add/remove here if you wish
      */
-    var userTicketNumber : String = user.ticket.ticketNumber
+    var flightNumber : String = booking.ticketDetails.flightNumber
     {
         didSet {
-            UserDefaults.standard.set(userTicketNumber, forKey: PRICEKEY)
+            UserDefaults.standard.set(flightNumber, forKey: FLIGHTNUMBERKEY)
         }
     }
-    var userTicketFlightNumber: String = user.ticket.flightNumber
+    var arrLocation : String = booking.ticketDetails.arrLocation
     {
         didSet {
-            UserDefaults.standard.set(userTicketFlightNumber, forKey: PRICEKEY)
+            UserDefaults.standard.set(arrLocation, forKey: ARRLOCATIONKEY)
         }
     }
-    var userTicketSeat: Int = user.ticket.seat
+    var depLocation : String = booking.ticketDetails.depLocation
     {
         didSet {
-            UserDefaults.standard.set(userTicketSeat, forKey: PRICEKEY)
+            UserDefaults.standard.set(depLocation, forKey: DEPLOCATIONKEY)
         }
     }
+    var departureTime : String = booking.ticketDetails.departureTime
+    {
+        didSet {
+            UserDefaults.standard.set(departureTime, forKey: DEPARTURETIMEKEY)
+        }
+    }
+    
     
     /*
      Settings variables
      */
-  
-    
     //Put all variables that have to do with APP interaction here, eg for bubble pop we had timer, bubbleNumber etc
  
     
