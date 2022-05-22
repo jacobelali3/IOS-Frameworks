@@ -61,7 +61,7 @@ class UserDetailController: UIViewController {
     
     func nameIsValid(_ name: String) -> Bool{
         let namePredicate = NSPredicate(format:"SELF MATCHES%@", namePattern);
-        return namePredicate.evaluate(with: name);
+        return namePredicate.evaluate(with: name)
     }
     
     
