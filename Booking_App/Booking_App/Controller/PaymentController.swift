@@ -68,7 +68,9 @@ class PaymentController: UIViewController {
         }
         
         if valid {
-            print("All inputs valid, safe to proceed.")
+            let nextViewController: ConfirmController = ConfirmController()
+            nextViewController.booking = self.booking
+            self.present(nextViewController, animated: true, completion: nil)
         }
     }
     
