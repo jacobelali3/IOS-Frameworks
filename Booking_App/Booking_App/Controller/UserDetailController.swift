@@ -25,6 +25,7 @@ class UserDetailController: UIViewController {
         //etUserDate(_ day: Int,_ month: Int,_ year: Int,_ hour: Int,_ minute: Int){
         override func viewDidLoad() {
             super.viewDidLoad()
+            initializeHideKeyboard()
         }
         
         //Regex check input, if valid save data, else throw error message to user:
@@ -47,7 +48,20 @@ class UserDetailController: UIViewController {
                 return false;
             }
         }
-        
+    func initializeHideKeyboard(){
+     //Declare a Tap Gesture Recognizer which will trigger our dismissMyKeyboard() function
+     let tap: UITapGestureRecognizer = UITapGestureRecognizer(
+     target: self,
+     action: #selector(dismissMyKeyboard))
+     //Add this tap gesture recognizer to the parent view
+     view.addGestureRecognizer(tap)
+     }
+     @objc func dismissMyKeyboard(){
+     //endEditing causes the view (or one of its embedded text fields) to resign the first responder status.
+     //In short- Dismiss the active keyboard.
+     view.endEditing(true)
+     }
+     
         //Send data to next viewController:
         override func prepare(for segue: UIStoryboardSegue, sender: Any?){
             if segue.identifier == "goToPayment" {

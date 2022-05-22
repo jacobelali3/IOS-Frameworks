@@ -20,7 +20,7 @@ let FLIGHTNUMBERKEY = "FLIGHT_NUMBER_KEY"
 let ARRLOCATIONKEY = "ARR_LOCATION_KEY"
 let DEPLOCATIONKEY = "DEP_LOCATION_KEY"
 let DEPARTURETIMEKEY = "DEPARTURE_TIME_KEY"
-
+let BOOKINGIDKEY = "BOOKING_ID_KEY"
 
 
 let booking : Booking = Booking()
@@ -32,6 +32,14 @@ class DataStore{
     
     
     static let access = DataStore()
+    
+    var bookingId : String = booking.bookingId
+    {
+        didSet {
+            UserDefaults.standard.set(bookingId, forKey: BOOKINGIDKEY)
+        }
+    }
+    
     
     /*
      User variables - add/remove here if you wish

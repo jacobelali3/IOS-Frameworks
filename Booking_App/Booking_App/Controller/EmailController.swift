@@ -13,12 +13,28 @@ import MessageUI
 
 class EmailController: UIViewController,UINavigationControllerDelegate, MFMailComposeViewControllerDelegate {
     var booking: Booking = Booking()
-    var ticketMessage: String = " "
     var email: String = "someEmailToSendTo@gmail.com"
+    var flightMessage = ""
+    var thankYouMessage = ""
     let customAlert = EmailAlert()
+    
+    @IBAction func goHome(){
+        performSegue(withIdentifier: "goHome", sender: self)
+    }
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        self.booking.bookingId = String(Int.random(in: 1..<9999))
+        saveToDb()
+        email = self.booking.userDetails.email
+        flightMessage = "Booking Id: " + self.booking.bookingId +
+        "<br></br>Flight Number: " + self.booking.ticketDetails.flightNumber +
+        "<br></br>Departure time: " + self.booking.ticketDetails.departureTime +
+        "<br></br>Departure Location: " + self.booking.ticketDetails.depLocation +
+        "<br></br>Arrival Location: " + self.booking.ticketDetails.arrLocation +
+        "<br></br>Card ending in: " + self.booking.paymentDetails.cardNumber.suffix(4)
+        thankYouMessage = "<br></br>Thank you for flying with Team Baker Airlines " + self.booking.userDetails.firstName
+    
     }
 //    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
 //           if segue.identifier == "goToGame" {
@@ -26,6 +42,26 @@ class EmailController: UIViewController,UINavigationControllerDelegate, MFMailCo
 //
 //           }
 //    }
+    
+    @objc func saveToDb(){
+        DataStore.access.bookingId = self.booking.bookingId
+        //User details
+        DataStore.access.firstName = self.booking.userDetails.firstName
+        DataStore.access.lastName = self.booking.userDetails.lastName
+        DataStore.access.email = self.booking.userDetails.email
+        //Payment details
+        DataStore.access.cardNumber = self.booking.paymentDetails.cardNumber
+        DataStore.access.cardHolderName = self.booking.paymentDetails.cardHolderName
+        DataStore.access.postCode = self.booking.paymentDetails.postCode
+        DataStore.access.expiry = self.booking.paymentDetails.expiry
+        DataStore.access.cvv = self.booking.paymentDetails.cvv
+        //Ticket details
+        DataStore.access.arrLocation = self.booking.ticketDetails.arrLocation
+        DataStore.access.depLocation = self.booking.ticketDetails.depLocation
+        DataStore.access.departureTime = self.booking.ticketDetails.departureTime
+        DataStore.access.flightNumber = self.booking.ticketDetails.flightNumber
+        
+    }
 
     @IBAction func didTapButton(){
       
@@ -34,7 +70,7 @@ class EmailController: UIViewController,UINavigationControllerDelegate, MFMailCo
         vc.delegate = self
         vc.setSubject("Booking Ticket")
         vc.setToRecipients([email])
-        vc.setMessageBody("<h1>Your ticket information:</h1><br></br>" + "<p>" + ticketMessage + "</p><br></br><br></br><p>Team Baker airlines</p>", isHTML: true)
+        vc.setMessageBody("<h1>Your ticket information:</h1><h2>" + thankYouMessage + "</h2><br></br>" + "<p>" + flightMessage + "</p><br></br><p>Team Baker airlines</p>", isHTML: true)
         present(vc, animated: true)
         }
         else{

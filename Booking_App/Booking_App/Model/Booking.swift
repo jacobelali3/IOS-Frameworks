@@ -8,7 +8,7 @@
 import Foundation
 struct Booking{
     
-    var bookingId : String = "NOT_SET"
+    var bookingId : String = ""
     var paymentDetails : Payment = Payment()
     var ticketDetails : Ticket = Ticket()
     var userDetails : User = User()
