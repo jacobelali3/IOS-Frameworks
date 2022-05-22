@@ -28,6 +28,7 @@ class UserDetailController: UIViewController {
         super.viewDidLoad()
     }
     
+    //Regex check input, if valid save data, else throw error message to user:
     @objc func confirm() -> Bool{
         if(emailIsValid(emailTf.text!) && nameIsValid(firstNameTf.text!) && nameIsValid(lastNameTf.text!)){
             //Set user firstName:
@@ -41,12 +42,14 @@ class UserDetailController: UIViewController {
             
             return true;
         }
+        //Send error message if input is invalid:
         else{
             alert.showAlert(with: "Invalid Input", message: "Error! Invalid input! Check your name and email.", on: self)
             return false;
         }
     }
     
+    //Send data to next viewController:
     override func prepare(for segue: UIStoryboardSegue, sender: Any?){
         if segue.identifier == "goToPayment" {
             let VC = segue.destination as! PaymentController;
@@ -54,6 +57,7 @@ class UserDetailController: UIViewController {
         }
     }
     
+    //Override perform segue function for regex checking:
     override func shouldPerformSegue(withIdentifier identifier: String, sender: Any?) -> Bool {
         if confirm(){
             return true;
@@ -64,15 +68,17 @@ class UserDetailController: UIViewController {
     }
     
     
-         
+    //Regular Expressions logic;
     let emailPattern = #"^\S+@\S+\.\S+$"#;
     let namePattern = #"[a-zA-Z]+"#;
     
+    //Check email validity:
     func emailIsValid(_ email: String) -> Bool{
         let emailPredicate = NSPredicate(format:"SELF MATCHES %@", emailPattern);
         return emailPredicate.evaluate(with: email);
     }
     
+    //Check name validity:
     func nameIsValid(_ name: String) -> Bool{
         let namePredicate = NSPredicate(format:"SELF MATCHES %@", namePattern);
         return namePredicate.evaluate(with: name);
