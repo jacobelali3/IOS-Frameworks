@@ -68,9 +68,22 @@ class PaymentController: UIViewController {
         }
         
         if valid {
-            let nextViewController: ConfirmController = ConfirmController()
-            nextViewController.booking = self.booking
-            self.present(nextViewController, animated: true, completion: nil)
+            self.booking.paymentDetails.cardNumber = cardNumber
+            self.booking.paymentDetails.cvv = CVV
+            self.booking.paymentDetails.expiry = expiry
+            self.booking.paymentDetails.postCode = postcode
+            self.booking.paymentDetails.cardHolderName = name
+//            let nextViewController: EmailController = EmailController()
+//            nextViewController.booking = self.booking
+//            self.present(nextViewController, animated: true, completion: nil)
+            // replaced with prepare()
+        }
+    }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.identifier == "goToEmail" {
+            let VC = segue.destination as! EmailController
+            VC.booking = self.booking
         }
     }
     
