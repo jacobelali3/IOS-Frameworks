@@ -7,9 +7,12 @@
 
 import Foundation
 struct User{
-    var name : String = "someUser"
-    var balance : Double = 0.0
+    var firstName : String = "someUser"
+    var surname : String = "someUser"
+   // var balance : Double = 0.0 - Not needed, we're not keeping track of balance as payment is immediate.
     var email : String = "defaultEmail"
-    var ticket : Ticket = Ticket()
-    var booking : Booking = Booking()
+    
+//    var ticket : Ticket = Ticket()
+//    var booking : Booking = Booking()
+    
 }

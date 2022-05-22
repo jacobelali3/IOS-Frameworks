@@ -12,4 +12,7 @@ struct Booking{
     var flightName : String = "Some flight"
     var date : Date = .now
     var price : Double = 0.0
+    let user : User = User();
+    let ticket : Ticket = Ticket();
+    // var flight : Flight?; - In case we need to store flights data.
 }
